@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import Aos from "aos";
 import AddProduct from "../Pages/AddProduct/AddProduct";
 import Cart from "../Pages/Cart/Cart";
+import Brand from "../Pages/Brand/Brand";
 Aos.init();
 
 
@@ -21,13 +22,11 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch('https://brand-shop-server-drsixsa5c-md-rokon-uz-zaman-ronis-projects.vercel.app/categories')
+        loader: () => fetch(' https://brand-shop-server-j4onq6kki-rokonroni-a48d6abc.vercel.app/categories')
       },
       {
         path : "/contact",
-        element: <PrivateRoute>
-          <Contact></Contact>
-        </PrivateRoute>
+        element: <PrivateRoute><Contact></Contact></PrivateRoute>
       },
       {
         path : "/login",
@@ -39,15 +38,16 @@ const router = createBrowserRouter([
       },
       {
         path : "/addProduct",
-        element: <PrivateRoute>
-          <AddProduct></AddProduct>
-        </PrivateRoute>
+        element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>
       },
       {
         path : "/cart",
-        element: <PrivateRoute>
-          <Cart></Cart>
-        </PrivateRoute>
+        element: <PrivateRoute><Cart></Cart></PrivateRoute>
+      },
+      {
+        path : "/category/:categoryName",
+        element: <PrivateRoute><Brand></Brand></PrivateRoute>,
+        loader: ({params}) => fetch(` https://brand-shop-server-j4onq6kki-rokonroni-a48d6abc.vercel.app/products/${params.categoryName}`) 
       },
     ],
   },

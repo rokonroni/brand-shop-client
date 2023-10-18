@@ -6,7 +6,7 @@ const Footer = () => {
       <footer className="footer px-10 pt-10 bg-blue-600 text-white">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <h2 className="text-2xl font-bold">TechGeeks</h2>
+            <img className='w-1/2' src="/Logo.png" alt="" />
             <p className="mt-4">Your source for the latest technology and electronics trends.</p>
           </div>
 
