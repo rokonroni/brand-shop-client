@@ -3,14 +3,13 @@ import { useLoaderData } from "react-router-dom";
 import Categories from "../../layout/Categories/Categories";
 
 const Home = () => {
-  const products = useLoaderData();
-  console.log(products);
+  const categories = useLoaderData();
   return (
     <div >
       <Helmet>
         <title>Brand Shop || Home</title>
       </Helmet>
-      <Categories products={products}></Categories>
+      <Categories categories={categories}></Categories>
     </div>
   );
 };

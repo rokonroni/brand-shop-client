@@ -27,7 +27,7 @@ const AddProduct = () => {
       setProduct({ ...product, rating: 5 });
     }
 
-    fetch("http://localhost:5000/products", {
+    fetch("https://brand-shop-server-drsixsa5c-md-rokon-uz-zaman-ronis-projects.vercel.app/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",

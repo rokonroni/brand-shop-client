@@ -21,7 +21,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch('http://localhost:5000/categories')
+        loader: () => fetch('https://brand-shop-server-drsixsa5c-md-rokon-uz-zaman-ronis-projects.vercel.app/categories')
       },
       {
         path : "/contact",
