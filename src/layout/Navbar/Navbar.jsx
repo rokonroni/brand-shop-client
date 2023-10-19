@@ -61,7 +61,7 @@ const Navbar = () => {
               : "font-bold text-lg underline hover:bg-transparent hover:text-[#FF444A] focus:bg-white focus:text-[#FF444A]"
           }
         >
-          My cart
+          My Cart
         </NavLink>
       </li>
     </>

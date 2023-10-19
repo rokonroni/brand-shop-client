@@ -11,6 +11,7 @@ import Register from "../Pages/Register/Register";
 import Root from "../Pages/Root/Root";
 import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct";
 import PrivateRoute from "./PrivateRoute";
+import ProductDetails from "../Pages/ProductDetails/ProductDetails";
 Aos.init();
 
 const router = createBrowserRouter([
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
         element: <Home />,
         loader: () =>
           fetch(
-            " https://brand-shop-server-j4onq6kki-rokonroni-a48d6abc.vercel.app/categories"
+            "https://brand-shop-server-eta.vercel.app/categories"
           ),
       },
       {
@@ -60,7 +61,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/category/:categoryName",
+        path: "/brand/:categoryName",
         element: (
           <PrivateRoute>
             <Brand></Brand>
@@ -68,7 +69,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            ` https://brand-shop-server-j4onq6kki-rokonroni-a48d6abc.vercel.app/products/${params.categoryName}`
+            ` https://brand-shop-server-eta.vercel.app/products/${params.categoryName}`
           ),
       },
       {
@@ -80,7 +81,19 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://brand-shop-server-j4onq6kki-rokonroni-a48d6abc.vercel.app/product/${params.id}`
+            `https://brand-shop-server-eta.vercel.app/product/${[params.id]}`
+          ),
+      },
+      {
+        path: "/productDetails/:id",
+        element: (
+          <PrivateRoute>
+            <ProductDetails></ProductDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://brand-shop-server-eta.vercel.app/product/${[params.id]}`
           ),
       },
     ],

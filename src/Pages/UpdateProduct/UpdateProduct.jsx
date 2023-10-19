@@ -1,16 +1,13 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdateProduct = () => {
   const product = useLoaderData();
-
-  console.log(product);
   const [updatedProduct, setUpdatedProduct] = useState({ ...product });
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
-    // Ensure the "rating" value is within the range of 0 to 5
     if (name === "rating") {
       const ratingValue = Math.min(5, Math.max(0, parseInt(value, 10)));
       setUpdatedProduct({
@@ -25,8 +22,28 @@ const UpdateProduct = () => {
     }
   };
 
-  const handleSubmit = () => {
-    // Handle form submission, e.g., update the product with the new data
+  const handleSubmit = (e) => {
+   e.preventDefault();
+
+    fetch(`https://brand-shop-server-eta.vercel.app/product/${updatedProduct._id}`,{
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatedProduct),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          Swal.fire({
+            title: 'Success!',
+            text: 'Product Updated Successfully',
+            icon: "success",
+            confirmButtonText: 'Ok'
+          });
+        }
+      });
   };
 
   return (
@@ -39,8 +56,7 @@ const UpdateProduct = () => {
             type="text"
             id="image"
             name="image"
-            defaultValue={product.image}
-            value={updatedProduct.image}
+            defaultValue={updatedProduct.image}
             onChange={handleInputChange}
             className="w-full p-2 border rounded-md"
           />
@@ -51,7 +67,7 @@ const UpdateProduct = () => {
             type="text"
             id="name"
             name="name"
-            value={updatedProduct.name}
+            defaultValue={updatedProduct.name}
             onChange={handleInputChange}
             className="w-full p-2 border rounded-md"
           />
@@ -60,7 +76,7 @@ const UpdateProduct = () => {
           <label className="text-sm font-medium text-gray-600">Brand Name:</label>
           <select
             name="brand"
-            value={updatedProduct.brand}
+            defaultValue={updatedProduct.brand}
             onChange={handleInputChange}
             className="w-full p-2 border rounded-md"
           >
@@ -78,7 +94,7 @@ const UpdateProduct = () => {
           <select
             id="type"
             name="type"
-            value={updatedProduct.type}
+            defaultValue={updatedProduct.type}
             onChange={handleInputChange}
             className="w-full p-2 border rounded-md"
           >
@@ -98,7 +114,7 @@ const UpdateProduct = () => {
             type="number"
             id="price"
             name="price"
-            value={updatedProduct.price}
+            defaultValue={updatedProduct.price}
             onChange={handleInputChange}
             className="w-full p-2 border rounded-md"
           />
@@ -109,7 +125,7 @@ const UpdateProduct = () => {
             type="number"
             id="rating"
             name="rating"
-            value={updatedProduct.rating}
+            defaultValue={updatedProduct.rating}
             onChange={handleInputChange}
             min="0"
             max="5"

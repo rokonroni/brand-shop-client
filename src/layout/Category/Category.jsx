@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 const Category = ({ category }) => {
   
   return (
-    <Link to={`category/${category.name}`}>
+    <Link to={`brand/${category.name}`}>
        <div>
-      <div className="card card-compact w-96 bg-base-100 shadow-xl">
+      <div className="card card-compact w-96 bg-base-100 dark:bg-black shadow-xl">
         <figure>
           <img className='w-full h-1/2'
             src={category.image}

@@ -21,11 +21,13 @@ const Card = ({ product }) => {
         <p className="text-gray-600">{type}</p>
         <p className="text-gray-600">${price}</p>
         <div className="mt-4 flex justify-between">
-          <button
+          <Link to={`/productDetails/${_id}`}>
+            <button
             className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
           >
             Details
           </button>
+          </Link>
           <Link to={`/update/${_id}`}>
             <button
             className="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 focus:outline-none focus:ring focus:ring-green-300"
@@ -39,6 +41,6 @@ const Card = ({ product }) => {
   );
 };
 Card.propTypes = {
-  product: PropTypes.object.isRequired,
+  product: PropTypes.object,
 };
 export default Card;
