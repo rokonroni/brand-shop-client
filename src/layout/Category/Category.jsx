@@ -5,7 +5,7 @@ const Category = ({ category }) => {
   return (
     <Link to={`brand/${category.name}`}>
        <div>
-      <div className="card card-compact w-96 bg-base-100 dark:bg-black shadow-xl">
+      <div className="card card-compact w-96 mb-6 bg-base-100 dark:bg-gray-700 shadow-xl">
         <figure>
           <img className='w-full h-1/2'
             src={category.image}

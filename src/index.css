@@ -1,3 +1,22 @@
+
+
+:root {
+  --bg-color: white;
+  --text-color: black;
+}
+
+/* Dark theme */
+.dark {
+  --bg-color: #212b36;
+  --text-color: white;
+}
+
+/* Apply the theme to the body or any container */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

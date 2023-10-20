@@ -2,12 +2,12 @@
 const Banner = () => {
   return (
     <div>
-        <div className="bg-gray-200">
+        <div className="bg-gray-200 dark:bg-gray-700">
           <section className="py-5 mx-auto max-w-screen-xl  sm:flex flex-grow-0 sm:p-5">
             <article className="flex-col justify-center inline-flex self-stretch  p-6">
-              <h2 className="uppercase font-semibold text-xl">Design</h2>
+              <h2 className="uppercase font-semibold text-red-700 text-5xl">50% OFF</h2>
               <strong className="text-lg pb-2 font-normal font-sans sm:text-2xl">
-                Our 30 Year Journey
+                For Black Friday 
               </strong>
               <p className="text-sm pb-4">
                 Join us as we revisit our roots, tracing the path from bright
@@ -15,12 +15,12 @@ const Banner = () => {
                 while creating beautiful things.{" "}
               </p>
               <button className="font-semibold uppercase border-black border p-3 max-w-max hover:bg-gray-600 hover:text-white">
-                Join us
+                Shop Now
               </button>
             </article>
-            <figure>
+            <figure className="w-full">
               <img
-                src="https://images.unsplash.com/photo-1606170033648-5d55a3edf314?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fGxpZ2h0c3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+                src="/banner4.jpg"
                 alt="Banner"
               />
             </figure>
