@@ -67,9 +67,7 @@ const router = createBrowserRouter([
       {
         path: "/brand/:categoryName",
         element: (
-          <PrivateRoute>
             <Brand></Brand>
-          </PrivateRoute>
         ),
         loader: ({ params }) =>
           fetch(
