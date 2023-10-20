@@ -105,6 +105,9 @@ const UpdateProduct = () => {
             <option value="Monitor">Monitor</option>
             <option value="Mouse">Mouse</option>
             <option value="Printer">Printer</option>
+            <option value="Printer">Keyboard</option>
+            <option value="Printer">Laptop</option>
+            <option value="Printer">MotherBoard</option>
             
           </select>
         </div>

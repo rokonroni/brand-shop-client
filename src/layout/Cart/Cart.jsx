@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import Swal from "sweetalert2";
-const Cart = ({ product }) => {   
+const Cart = ({ product, products, setProducts }) => {   
   const { _id, name, image, brand, type, price } = product;
   console.log(_id);
-  const handleDelete = ({ _id }) => {
+  const handleDelete = (_id) => {
     console.log(_id);
     Swal.fire({
       title: "Are you sure?",
@@ -23,6 +23,8 @@ const Cart = ({ product }) => {
             console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              const remaining = products.filter(prod=>prod._id !==_id);
+              setProducts(remaining);
             }
           });
       }
@@ -59,7 +61,7 @@ const Cart = ({ product }) => {
               -{" "}
             </span>
             <input
-              className="h-8 w-8 border bg-white text-center text-xs outline-none"
+              className="h-8 w-14 border bg-white text-center text-xs outline-none"
               type="number"
               defaultValue={1}
               min={1}
@@ -94,5 +96,7 @@ const Cart = ({ product }) => {
 };
 Cart.propTypes = {
   product: PropTypes.object.isRequired,
+  products: PropTypes.array.isRequired,
+  setProducts: PropTypes.func.isRequired,
 };
 export default Cart;
