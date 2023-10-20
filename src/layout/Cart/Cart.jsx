@@ -1,16 +1,56 @@
-const Cart = () => {
+import PropTypes from "prop-types";
+import Swal from "sweetalert2";
+const Cart = ({ product }) => {   
+  const { _id, name, image, brand, type, price } = product;
+  console.log(_id);
+  const handleDelete = ({ _id }) => {
+    console.log(_id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://brand-shop-server-eta.vercel.app/cart/product/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            }
+          });
+      }
+    });
+  };
+  if (!product || typeof product !== "object") {
+    return (
+      <div
+        className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded relative"
+        role="alert"
+      >
+        <strong className="font-bold">Error:</strong>
+        <span className="block sm:inline"> No Product Added</span>
+      </div>
+    );
+  }
   return (
     <div className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
       <img
-        src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+        src={image}
         alt="product-image"
         className="w-full rounded-lg sm:w-40"
       />
       <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between items-center">
         <div className="mt-5 sm:mt-0">
-          <h2 className="text-lg font-bold text-gray-900">Nike Air Max 2019</h2>
-          <p className="mt-1 text-xs text-gray-700">BRAND</p>
-          <p className="mt-1 text-xs text-gray-700">category</p>
+          <h2 className="text-lg font-bold text-gray-900">{name}</h2>
+          <p className="mt-1 text-xs text-gray-700">{brand}</p>
+          <p className="mt-1 text-xs text-gray-700">{type}</p>
         </div>
         <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
           <div className="flex items-center border-gray-100">
@@ -30,26 +70,29 @@ const Cart = () => {
             </span>
           </div>
           <div className="flex items-center space-x-4">
-            <p className="text-sm">$200</p>
-            <svg
+            <p className="text-sm">${price}</p>
+              <svg 
+              onClick={() => handleDelete(_id)}
               xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="h-5 w-5 cursor-pointer duration-150 hover:text-red-500"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="h-5 w-5 cursor-pointer duration-150 hover:text-red-500"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
           </div>
         </div>
       </div>
     </div>
   );
 };
-
+Cart.propTypes = {
+  product: PropTypes.object.isRequired,
+};
 export default Cart;

@@ -8,12 +8,10 @@ const ProductDetails = () => {
   const product = useLoaderData();
   const {user} = useContext(AuthContext);
   const userEmail =user.email;
-  const { _id, name, image, shortDescription, brand, price, type, rating } =
-    product;
+  const { name, image, shortDescription, brand, price, type, rating } =product;
 
   const handleAddCart = () => {
-    const CartItem = { _id, name, image, brand, price, type,userEmail };
-    console.log(CartItem);
+    const CartItem = { name, image, brand, price, type, userEmail };
     // send data to the server
     fetch(
       "https://brand-shop-server-eta.vercel.app/cart/products",

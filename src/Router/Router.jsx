@@ -61,7 +61,7 @@ const router = createBrowserRouter([
         ),
        loader: ({params}) =>
           fetch(
-            `https://brand-shop-server-eta.vercel.app/cart/products/${params.userName}`
+            `https://brand-shop-server-eta.vercel.app/cart/products/${params.userEmail}`
           ),
       },
       {

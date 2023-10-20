@@ -7,9 +7,10 @@ const Brand = () => {
   if (data.length > 0) {
     return (
       <div>
-        <Slider items={data}></Slider>
+        <Slider></Slider>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-          {data?.map((product) => (
+          {
+          data?.map((product) => (
             <Card key={product.id} product={product}></Card>
           ))}
         </div>

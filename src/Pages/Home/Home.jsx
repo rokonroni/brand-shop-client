@@ -3,6 +3,8 @@ import { useLoaderData } from "react-router-dom";
 import Categories from "../../layout/Categories/Categories";
 import Hero from "../../layout/Hero/Hero";
 import WhyUs from "../../layout/WhyUs/WhyUs";
+import Banner from "../../layout/Banner/Banner";
+import Populer from "../../layout/Populer/Populer";
 
 const Home = () => {
   const categories = useLoaderData();
@@ -10,9 +12,11 @@ const Home = () => {
     <div >
       <Helmet>
         <title>Brand Shop || Home</title>
-      </Helmet>
+      </Helmet> 
       <Hero></Hero>
       <Categories categories={categories}></Categories>
+      <Banner/>
+      <Populer></Populer>
       <WhyUs></WhyUs>
     </div>
   );
