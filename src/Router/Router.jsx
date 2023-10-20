@@ -2,7 +2,6 @@ import Aos from "aos";
 import { createBrowserRouter } from "react-router-dom";
 import AddProduct from "../Pages/AddProduct/AddProduct";
 import Brand from "../Pages/Brand/Brand";
-import Cart from "../Pages/Cart/Cart";
 import Contact from "../Pages/Contact/Contact";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
@@ -12,6 +11,7 @@ import Root from "../Pages/Root/Root";
 import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct";
 import PrivateRoute from "./PrivateRoute";
 import ProductDetails from "../Pages/ProductDetails/ProductDetails";
+import MyCart from "../Pages/MyCart/MyCart";
 Aos.init();
 
 const router = createBrowserRouter([
@@ -53,12 +53,16 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/cart",
+        path: "/cart/:userEmail",
         element: (
           <PrivateRoute>
-            <Cart></Cart>
+            <MyCart></MyCart>
           </PrivateRoute>
         ),
+       loader: ({params}) =>
+          fetch(
+            `https://brand-shop-server-eta.vercel.app/cart/products/${params.userName}`
+          ),
       },
       {
         path: "/brand/:categoryName",

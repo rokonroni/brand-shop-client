@@ -4,6 +4,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const userEmail = user.email;
   const defultURL =
     "https://i.ibb.co/yyqYs5G/065893fea1c83ab8abeca91dc669e470.jpg";
   const NavLinks = (
@@ -52,7 +53,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/cart"
+          to={`/cart/${userEmail}`}
           className={({ isActive, isPending }) =>
             isPending
               ? "bg-none"

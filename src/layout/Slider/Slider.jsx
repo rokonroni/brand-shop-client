@@ -13,7 +13,7 @@ const Slider = ({ items }) => {
 
   return (
     <div className="relative">
-      <div className="w-full h-64 bg-cover bg-center relative" style={{ backgroundImage: `url(${items[activeIndex].image})` }}>
+      <div className="w-full h-[60vh] bg-cover bg-center relative" style={{ backgroundImage: `url(${items[activeIndex].image})` }}>
         <div className="absolute inset-0 bg-opacity-40 bg-black flex items-center justify-center">
           <div className="text-white text-center">
             <h2 className="text-2xl font-bold">{items[activeIndex].name}</h2>

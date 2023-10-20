@@ -4,7 +4,6 @@ import Card from "../../layout/Card/Card";
 
 const Brand = () => {
   const data = useLoaderData();
-  console.log(data);
   if (data.length > 0) {
     return (
       <div>
