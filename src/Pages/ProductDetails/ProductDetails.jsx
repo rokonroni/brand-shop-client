@@ -48,11 +48,11 @@ const ProductDetails = () => {
               </div>
             </div>
             <div className="w-full md:w-1/2 px-10">
-              <div className="mb-10">
+              <div className="mb-4">
                 <h1 className="font-bold uppercase text-2xl mb-5">{name}</h1>
-                <p className="font-semibold">Brand: {brand}</p>
-                <p>Desciption: {shortDescription}</p>
-                <p>Rating: {rating}</p>
+                <p className="font-semibold text-xl mb-4">Brand: {brand}</p>
+                <p><span className="font-bold">Desciption:</span> {shortDescription}</p>
+                <p className="mt-3"><span className="font-bold">Rating:</span> {rating}</p>
               </div>
               <div>
                 <div className="inline-block align-bottom mr-5">

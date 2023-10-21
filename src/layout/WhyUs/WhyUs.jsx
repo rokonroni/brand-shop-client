@@ -3,7 +3,7 @@ const WhyUs = () => {
     return (
         <>
   <div className=" bg-gray-300 dark:bg-gray-700">
-    <section className=" text-center container my-10 mx-auto md:p-6">
+    <section className=" text-center container py-10 mx-auto md:p-6">
       <h2 className="mb-16 text-3xl font-bold">             
         Why Choose Us
         

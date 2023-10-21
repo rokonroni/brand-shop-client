@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -47,7 +48,11 @@ const UpdateProduct = () => {
   };
 
   return (
-    <div className="max-w-md mb-6 mx-auto p-6 bg-white rounded-md shadow-md">
+    <>
+    <Helmet>
+        <title>Brand Shop || Update Product</title>
+    </Helmet>
+      <div className="max-w-md mb-6 mx-auto p-6 bg-white rounded-md shadow-md">
       <h2 className="text-2xl font-semibold text-gray-800 mb-4">Update Product</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
@@ -105,9 +110,12 @@ const UpdateProduct = () => {
             <option value="Monitor">Monitor</option>
             <option value="Mouse">Mouse</option>
             <option value="Printer">Printer</option>
-            <option value="Printer">Keyboard</option>
-            <option value="Printer">Laptop</option>
-            <option value="Printer">MotherBoard</option>
+            <option value="Keyboard">Keyboard</option>
+            <option value="Laptop">Laptop</option>
+            <option value="MotherBoard">MotherBoard</option>
+            <option value="SSD">SSD</option>
+            <option value="Processor">Processor</option>
+            <option value="Casing">Casing</option>
             
           </select>
         </div>
@@ -143,6 +151,8 @@ const UpdateProduct = () => {
         </button>
       </form>
     </div>
+    </>
+    
   );
 };
 

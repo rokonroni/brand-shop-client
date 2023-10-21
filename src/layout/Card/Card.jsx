@@ -17,9 +17,9 @@ const Card = ({ product }) => {
       </div>
       <div className="mt-4">
         <h2 className="text-lg font-semibold">{name}</h2>
-        <p className="text-gray-600">{brand}</p>
-        <p className="text-gray-600">{type}</p>
-        <p className="text-gray-600">${price}</p>
+        <p className="text-gray-600"><span className="font-bold">Brand:</span> {brand}</p>
+        <p className="text-gray-600"><span className="font-bold">Type:</span> {type}</p>
+        <p className="text-gray-600"><span className="font-bold">Price: </span>${price}</p>
         <div className="mt-4 flex justify-between">
           <Link to={`/productDetails/${_id}`}>
             <button
