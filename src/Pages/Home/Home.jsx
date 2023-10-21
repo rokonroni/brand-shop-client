@@ -4,6 +4,7 @@ import Categories from "../../layout/Categories/Categories";
 import Hero from "../../layout/Hero/Hero";
 import WhyUs from "../../layout/WhyUs/WhyUs";
 import Banner from "../../layout/Banner/Banner";
+import CTA from "../../layout/CTA/CTA";
 
 const Home = () => {
   const categories = useLoaderData();
@@ -16,6 +17,7 @@ const Home = () => {
       <Categories categories={categories}></Categories>
       <Banner/>
       <WhyUs></WhyUs>
+      <CTA></CTA>
     </div>
   );
 };
