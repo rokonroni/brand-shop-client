@@ -14,7 +14,7 @@ const Banner = () => {
                 idea to industry disruptors with a plan to fight climate change
                 while creating beautiful things.{" "}
               </p>
-              <button className="font-semibold uppercase border-black border p-3 max-w-max hover:bg-gray-600 hover:text-white">
+              <button className="font-semibold uppercase border-black border p-3 max-w-max hover:bg-gray-600 hover:text-white"> 
                 Shop Now
               </button>
             </article>

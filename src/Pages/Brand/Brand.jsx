@@ -18,7 +18,9 @@ const Brand = () => {
     );
   } else {
     return (
-      <div className="flex flex-col justify-center items-center h-[70vh] bg-gradient-to-b from-purple-500 via-pink-500 to-red-500">
+      <>
+      <Slider></Slider>
+        <div className="flex flex-col justify-center items-center h-[70vh] bg-gradient-to-b from-purple-500 via-pink-500 to-red-500">
         <div className=" p-8 rounded-lg shadow-xl text-white text-center">
           <div className="text-6xl font-extrabold tracking-tight">
             Oh no, it is empty!
@@ -27,6 +29,8 @@ const Brand = () => {
           <p className="text-xl mt-1">Please explore elsewhere.</p>
         </div>
       </div>
+      </>
+      
     );
   }
 };
